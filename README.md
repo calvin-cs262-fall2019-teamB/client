@@ -1,3 +1,5 @@
+Calvin Dating App (team b): Bryce Allen, Brian Goins, Bryan Fowler, Joshua Bussis, Charlie Newton.
+
 As a team we wanted to tackle a complex but realistic application. We strived to 
 look for something that would not only just fulfill class requirements but give 
 us an opportunity to learn and a real push to develop in a cross platform
