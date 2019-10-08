@@ -1,20 +1,25 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      Calvin Dating App
-    </ion-title>
+    <ion-title>Matches</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="tertiary">
+  <ion-item class="bottomright" color="tertiary">
+    <ion-button (click)="goToChat()" router-direction="forward" color="primary" shape="round" class="chatbutton">
+      <ion-icon name="chatbubbles" color="secondary"></ion-icon>
+      <ion-label color="secondary">Chat</ion-label>
+    </ion-button>
+  </ion-item>
+
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
-      <ion-tab-button href="/matches" routerDirection="backward">
+      <ion-tab-button>
         <ion-icon name="contacts"></ion-icon>
         <ion-label>Matches</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button>
+      <ion-tab-button href="/home" routerDirection="forward">
         <ion-icon name="home"></ion-icon>
         <ion-label>Home</ion-label>
       </ion-tab-button>
