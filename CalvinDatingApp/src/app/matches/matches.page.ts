@@ -14,8 +14,8 @@ export class MatchesPage implements OnInit {
   }
 
   goToChat() {
+    // navigates to the chat page
     this.router.navigateByUrl('/chat');
-    console.log('Button pushed');
   }
 
 }
