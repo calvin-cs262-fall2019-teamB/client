@@ -1,33 +1,48 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Matches</ion-title>
+    <ion-title color="secondary">
+      Matches
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="tertiary">
-  <ion-item class="bottomright" color="tertiary">
-    <ion-button (click)="goToChat()" router-direction="forward" color="primary" shape="round" class="chatbutton">
-      <ion-icon name="chatbubbles" color="secondary"></ion-icon>
-      <ion-label color="secondary">Chat</ion-label>
-    </ion-button>
-  </ion-item>
+<ion-content color="tertiary" class="in-front"> 
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom" color="primary">
-      <ion-tab-button>
-        <ion-icon name="contacts"></ion-icon>
-        <ion-label>Matches</ion-label>
-      </ion-tab-button>
+  <ion-infinite-scroll class="behind">
+    <ion-infinite-scroll-content>
+      <ion-item color="primary" *ngFor="let match of matches" class="matches">
+        {{match.name}}
+      </ion-item>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
-      <ion-tab-button href="/home" routerDirection="forward">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Home</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button href="/personal" routerDirection="forward">
-        <ion-icon name="settings"></ion-icon>
-        <ion-label>Personal Settings</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-content>
+
+<ion-footer>
+  <ion-item class="bottomright" color="tertiary">
+      <ion-button (click)="goToChat()" router-direction="forward" color="primary" shape="round" class="chatbutton">
+        <ion-icon name="chatbubbles" color="secondary"></ion-icon>
+        <ion-label color="secondary">Chat</ion-label>
+      </ion-button>
+  </ion-item>
+  <ion-toolbar>
+    <ion-tabs>
+        <ion-tab-bar slot="bottom" color="primary">
+          <ion-tab-button>
+            <ion-icon name="contacts"></ion-icon>
+            <ion-label>Matches</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button href="/home" routerDirection="forward">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button href="/personal" routerDirection="forward">
+            <ion-icon name="settings"></ion-icon>
+            <ion-label>Personal Settings</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
