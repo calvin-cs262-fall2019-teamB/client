@@ -122,4 +122,14 @@ export class MatchesPage implements OnInit {
     this.router.navigateByUrl('/chat');
   }
 
+  goToHome() {
+    // navigates to the home page
+    this.router.navigateByUrl('/home');
+  }
+
+  goToPersonal() {
+    // navigates to the personal page
+    this.router.navigateByUrl('/personal');
+  }
+
 }
