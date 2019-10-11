@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title color="secondary">
+        Calvin Dating Login
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="tertiary">
+    <ion-list color="tertiary" class="login-list">
+        <!-- This is the email input -->
+      <ion-item color="tertiary">
+        <ion-label
+          color="primary"
+          position="floating">
+          Email
+        </ion-label>
+        <ion-input color="primary" 
+          [(ngModel)]="email">
+        </ion-input>
+      </ion-item>
+      <!-- This is the password input -->
+      <ion-item color="tertiary">
+        <ion-label
+          color="primary"
+          position="floating">
+          Password
+        </ion-label>
+        <ion-input color="primary" type="password"
+          [(ngModel)]="password">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="loginBtnClicked()" 
+      color="primary"  
+      shape="round" 
+      size="large"
+      expand="block">
+      <ion-label color="secondary">Login</ion-label>
+    </ion-button>
+  </ion-content>
+  

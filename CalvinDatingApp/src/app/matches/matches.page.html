@@ -33,12 +33,12 @@
             <ion-label>Matches</ion-label>
           </ion-tab-button>
     
-          <ion-tab-button href="/home" routerDirection="forward">
+          <ion-tab-button (click)="goToHome()" routerDirection="forward">
             <ion-icon name="home"></ion-icon>
             <ion-label>Home</ion-label>
           </ion-tab-button>
     
-          <ion-tab-button href="/personal" routerDirection="forward">
+          <ion-tab-button (click)="goToPersonal()" routerDirection="backward">
             <ion-icon name="settings"></ion-icon>
             <ion-label>Personal Settings</ion-label>
           </ion-tab-button>
