@@ -1,8 +1,4 @@
-As a team we wanted to tackle a complex but realistic application. We strived to 
-look for something that would not only just fulfill class requirements but give 
-us an opportunity to learn and a real push to develop in a cross platform
-development environment. We wanted a tangible product that would actually be 
-downloaded and possibly used by fellow students. 
+#Vision Statement
 
 This vision lead to the idea of a Calvin dating app. With incorporating a 
 Christian thought perspective, we believe that we can build and create an 
