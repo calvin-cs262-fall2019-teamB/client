@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content color='tertiary'>
+  <!-- Username input -->
   <ion-item>
     <ion-label position="floating">
       User Name
@@ -14,6 +15,13 @@
     <ion-input [(ngModel)]="userName"></ion-input>
     <ion-button shape="round" (click)="settingsButtonClicked()">Update username</ion-button>
   </ion-item>
+  <!-- Darkmode toggle -->
+  <ion-item>
+    <ion-label>Darkmode</ion-label>
+    <ion-toggle [(ngModel)]="darkMode"  (ionChange)="darkModeToggle()"></ion-toggle>
+  </ion-item>
+
+  <!-- Tab bar at bottom of page -->
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
       <ion-tab-button (click)="goToMatches()" routerDirection="backward">
