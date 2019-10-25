@@ -16,6 +16,32 @@
     <ion-input [(ngModel)]="userName"></ion-input>
     <ion-button shape="round" (click)="settingsButtonClicked()">Update username</ion-button>
   </ion-item>
+
+  <ion-list>
+      <ion-radio-group>
+        <ion-list-header>
+          Font Size
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Small</ion-label>
+          <ion-radio value="small" (ionSelect)="settings.saveFontSize('small')"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Normal</ion-label>
+          <ion-radio value="normal" (ionSelect)="settings.saveFontSize('normal')"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Large</ion-label>
+          <ion-radio value="large" (ionSelect)="settings.saveFontSize('large')"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  
+    <ion-button (click)="settings.factoryBtnClicked()">Factory Settings</ion-button>
+
   <!-- Darkmode toggle -->
   <ion-item>
     <ion-label>Darkmode</ion-label>
