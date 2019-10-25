@@ -7,6 +7,8 @@
 </ion-header>
 
 <ion-content color='tertiary'>
+  <!-- We will add the useability later -->
+  <!-- Username input -->
   <ion-item>
     <ion-label position="floating">
       User Name
@@ -40,6 +42,14 @@
   
     <ion-button (click)="settings.factoryBtnClicked()">Factory Settings</ion-button>
 
+  <!-- Darkmode toggle -->
+  <ion-item>
+    <ion-label>Darkmode</ion-label>
+    <ion-toggle [(ngModel)]="darkMode"  (ionChange)="darkModeToggle()"></ion-toggle>
+  </ion-item>
+
+  <!-- Tab bar at bottom of page -->
+  <!-- This is the same on all pages -->
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
       <ion-tab-button (click)="goToMatches()" routerDirection="backward">
