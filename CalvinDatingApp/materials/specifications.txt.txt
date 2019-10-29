@@ -1,0 +1,50 @@
+SPECIFICATIONS OF FUTURE USER STORY IMPLEMENTATIONS
+
+Match with other students:
+	Funcionality: match with others through swipe feature
+	Usability: will be on the home page, and can view them on matches page
+	Reliability: don't crash, swipe is smooth
+	Performance: smooth and properly adds match to list
+	Supportability: will be able to test when data base is ready
+	
+	Comments:
+		- need to be able to see other users' profiles and match with them
+		- matching is done through a swiping mechanism a la Tinder
+		- the actual matches will replace the dummy data on the matches page
+
+Message other users:
+	Functionality: chat with other users with Bible verses
+	Usability: will have its own page and should list all people you can chat with
+	Reliability: send the messages reliably, don't crash
+	Performance: send messages smoothly and correctly
+	Supportability: will be able to test and optimize with data base is ready
+
+	Comments:
+		- build up the chat page so that messages can be passed between users
+		- the design of this can be done in the next iteration, but the actual 
+			message passing is dependant on the data base
+
+Meet new people:
+	Functionality: this app will hopefully help students meet others
+	Usability: will be a by-product of using the app (hopefully)
+	Reliability: theorectically useable as long as the app exists
+	Performance: up to the users how they interact with those whom they meet with
+	Supportability: can't really test this
+
+	Comments:
+		- this resulting aspect of the app wont happen until it is in deployment
+		- ideally, this app will help Calvin students meet other Calvin students
+
+Improve the Calvin experience:
+	Functionality: will help the Calvin Community grow through meeting others
+	Usability: will depend on if app is running and how people use it
+	Reliability: time will tell
+	Performance: N/A
+	Supportability: supported through the app itself
+
+	Comments:
+		- we hope that this app will help the Calvin community grow together
+			and will be a fun bonding experience
+		- this will mostly occur when the app is fully developed, but we as
+			developers are growing together already by working together 
+			on this project
