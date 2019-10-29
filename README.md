@@ -1,4 +1,4 @@
-#Vision Statement
+# Vision Statement
 
 This vision lead to the idea of a Calvin dating app. With incorporating a 
 Christian thought perspective, we believe that we can build and create an 
