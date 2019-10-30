@@ -10,6 +10,32 @@ export class ChatPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  messages = [
+    {
+      user: 'Keith VanderLinden',
+      createdAt: 1554090856000,
+      msg: 'sup'
+    },
+    {
+      user: 'Also Keith VanderLinden',
+      createdAt: 1554090856000,
+      msg: 'hey'
+    },
+    {
+      user: 'Keith VanderLinden',
+      createdAt: 1554090856000,
+      msg: 'drinks?'
+    },
+    {
+      user: 'Also Keith VanderLinden',
+      createdAt: 1554090856000,
+      msg: 'Yassss'
+    }
+  ];
+  
+  currentUser ='Keith VanderLinden';
+
+  sendMessage(){}
   ngOnInit() {
   }
 
