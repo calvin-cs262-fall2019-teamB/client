@@ -11,41 +11,29 @@
   <!-- Username input -->
   <ion-item>
     <ion-label position="floating">
-      User Name
+      {{ settings.userName }}
     </ion-label>
     <ion-input [(ngModel)]="userName"></ion-input>
     <ion-button shape="round" (click)="settingsButtonClicked()">Update username</ion-button>
   </ion-item>
 
-  <ion-list>
-      <ion-radio-group>
-        <ion-list-header>
-          Font Size
-        </ion-list-header>
-  
-        <ion-item>
-          <ion-label>Small</ion-label>
-          <ion-radio value="small" (ionSelect)="settings.saveFontSize('small')"></ion-radio>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label>Normal</ion-label>
-          <ion-radio value="normal" (ionSelect)="settings.saveFontSize('normal')"></ion-radio>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label>Large</ion-label>
-          <ion-radio value="large" (ionSelect)="settings.saveFontSize('large')"></ion-radio>
-        </ion-item>
-      </ion-radio-group>
-    </ion-list>
-  
-    <ion-button (click)="settings.factoryBtnClicked()">Factory Settings</ion-button>
-
   <!-- Darkmode toggle -->
   <ion-item>
     <ion-label>Darkmode</ion-label>
-    <ion-toggle [(ngModel)]="darkMode"  (ionChange)="darkModeToggle()"></ion-toggle>
+    <ion-toggle checked={{settings?.darkMode}} [(ngModel)]="darkMode" (ionChange)="darkModeToggle()"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Font Size</ion-label>
+    <ion-select #font placeholder={{settings.fontSize}} (ionChange)="settings.saveFontSize(font.value)">
+      <ion-select-option value="large">Large</ion-select-option>
+      <ion-select-option value="normal">Normal</ion-select-option>
+      <ion-select-option value="small">Small</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-button (click)="get()">userName</ion-button>
   </ion-item>
 
   <!-- Tab bar at bottom of page -->

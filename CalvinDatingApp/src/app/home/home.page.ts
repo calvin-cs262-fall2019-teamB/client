@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PersonService } from '../services/person.service';
 import { Router } from '@angular/router';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(public personService: PersonService, private router: Router) {}
+  constructor(public personService: PersonService, private router: Router, private settings: SettingsService) {
+    this.settings.getUserName();
+    this.settings.getDarkMode();
+    this.settings.getFontSize();
+  }
 
   goToMatches() {
     // navigates to the home page

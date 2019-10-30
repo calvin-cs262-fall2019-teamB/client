@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../interfaces/person';
+import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-matches',
