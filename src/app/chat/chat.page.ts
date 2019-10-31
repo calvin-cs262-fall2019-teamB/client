@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-chat',
@@ -30,12 +31,35 @@ export class ChatPage implements OnInit {
       user: 'Also Keith VanderLinden',
       createdAt: 1554090856000,
       msg: 'Yassss'
+    },
+    {
+      user: 'Keith VanderLinden',
+      createdAt: 1554090856000,
+      msg: 'Yassss?'
     }
   ];
   
   currentUser ='Keith VanderLinden';
+  newMsg = '';
+  @ViewChild(IonContent) content: IonContent
 
-  sendMessage(){}
+
+  sendMessage()
+  {
+    this.messages.push({
+      user: 'Keith VanderLinden',
+      createdAt: new Date().getTime(),
+      msg: this.newMsg
+    });
+
+    this.newMsg = '';
+    setTimeout(() => {
+      this.content.scrollToBottom(200);
+
+    });
+
+    
+  }
   ngOnInit() {
   }
 

@@ -27,11 +27,11 @@
        </ion-row>
     </ion-grid>
         
-     <!-- <ion-footer>
+      <ion-footer >
       <ion-toolbar color="light">
-        <ion-row>
+        <ion-row align-items-center no-padding>
            <ion-col size="10">
-            <textarea autosize maxRows="3" [([(ngModel)]="newMsg" class="message-input"></textarea>
+            <textarea autosize maxRows="2" [(ngModel)]="newMsg" class="message-input"></textarea>
           </ion-col>
           <ion-col size="2">
              <ion-button expand="block" fill="clear" color="primary" [disabled]="newMsg === ''" class="msg-btn"
@@ -41,7 +41,7 @@
             </ion-col> 
         </ion-row>
       </ion-toolbar>
-    </ion-footer>  -->
+    </ion-footer>  
     <ion-tabs>
       <ion-tab-bar slot="bottom" color="primary">
         <ion-tab-button (click)="goToMatches()" routerDirection="backward">
