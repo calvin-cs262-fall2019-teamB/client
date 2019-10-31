@@ -15,27 +15,27 @@ export class ChatPage implements OnInit {
     {
       user: 'Keith VanderLinden',
       createdAt: 1554090856000,
-      msg: 'sup'
+      msg: ' sup'
     },
     {
       user: 'Also Keith VanderLinden',
       createdAt: 1554090856000,
-      msg: 'hey'
+      msg: ' hey'
     },
     {
       user: 'Keith VanderLinden',
       createdAt: 1554090856000,
-      msg: 'drinks?'
+      msg: ' drinks?'
     },
     {
       user: 'Also Keith VanderLinden',
       createdAt: 1554090856000,
-      msg: 'Yassss'
+      msg: ' Yassss'
     },
     {
       user: 'Keith VanderLinden',
       createdAt: 1554090856000,
-      msg: 'Yassss?'
+      msg: ' Yassss?'
     }
   ];
   
