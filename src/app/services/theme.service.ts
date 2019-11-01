@@ -1,3 +1,8 @@
+/**
+ * theme.service.ts is the file to handle dark mode
+ * 
+ * @author  Brian Goins
+ */
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common'; 
 import * as Color from 'color'; 
@@ -9,26 +14,23 @@ import { SettingsService } from '../services/settings.service';
   providedIn: 'root'
 })
 export class ThemeService {
-  
-  public theme; 
 
-  constructor( @Inject(DOCUMENT) private document: Document,
-                private settings: SettingsService) 
-  {
+  public theme;
 
-  }
+  constructor( @Inject(DOCUMENT) private document: Document, private settings: SettingsService) { }
 
+  // method to set the theme
   setTheme(theme) {
-    const cssText = CSSTextGenerator(theme); 
-    this.setGlobalCSS(cssText); 
+    const cssText = CSSTextGenerator(theme);
+    this.setGlobalCSS(cssText);
   }
 
- 
+  // method to make the theme global
   private setGlobalCSS(css: string) {
-    this.document.documentElement.style.cssText = css; 
+    this.document.documentElement.style.cssText = css;
   }
 }
-
+// default values
 const defaults = {
   primary: '#3880ff',
   secondary: '#0cd1e8',
@@ -40,7 +42,7 @@ const defaults = {
   medium: '#989aa2',
   light: '#f4f5f8'
 };
-
+// generate the css
 function CSSTextGenerator(colors) {
   colors = { ...defaults, ...colors };
 
@@ -63,7 +65,7 @@ function CSSTextGenerator(colors) {
     --ion-color-base: ${light};
     --ion-color-contrast: ${dark};
     --ion-background-color: ${light};
-    --ion-text-color: ${dark};
+    --ion-text-color: ${light};
     --ion-toolbar-background-color: ${contrast(light, 0.1)};
     --ion-toolbar-text-color: ${contrast(dark, 0.1)};
     --ion-item-background-color: ${contrast(light, 0.3)};
@@ -71,7 +73,7 @@ function CSSTextGenerator(colors) {
 
     --ion-color-primary: ${primary};
     --ion-color-primary-rgb: 56,128,255;
-    --ion-color-primary-contrast: ${contrast(primary)};
+    --ion-color-primary-contrast: ${(light)};
     --ion-color-primary-contrast-rgb: 255,255,255;
     --ion-color-primary-shade:  ${Color(primary).darken(shadeRatio)};
     --ion-color-primary-tint:  ${Color(primary).lighten(tintRatio)};

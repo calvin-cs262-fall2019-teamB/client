@@ -1,3 +1,4 @@
+// person object
 export interface Person {
     name: string;
     email: string;

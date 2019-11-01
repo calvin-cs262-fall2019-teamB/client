@@ -1,3 +1,8 @@
+/**
+ * settings.service.ts is the file to handle saving user settings on the phone
+ * 
+ * @author  Josh Bussis
+ */
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -12,6 +17,7 @@ export class SettingsService {
 
   constructor(private storage: Storage) { }
 
+  // method to save user name
   saveUserName(name: string) {
     // check if the user has input a username
     if (name !== '') {
@@ -22,6 +28,7 @@ export class SettingsService {
     }
   }
 
+  // method to get the current user name
   getUserName(): string {
     this.storage.get('userName').then((val) => {
       console.log('Your username is: ', val);
@@ -32,6 +39,7 @@ export class SettingsService {
     return this.userName;
   }
 
+  // method to save state of dark mode
   saveDarkMode(mode: boolean) {
     this.darkMode = mode;
     this.storage.set('darkMode', this.darkMode);
@@ -39,6 +47,7 @@ export class SettingsService {
     //this.getDarkMode();
   }
 
+  // method to get the state of dark mode
   getDarkMode(): boolean {
     this.storage.get('darkMode').then((val) => {
       console.log('Dark mode enabled: ', val);
@@ -54,6 +63,7 @@ export class SettingsService {
     return this.darkMode;
   }
 
+  // method to save font size
   saveFontSize(font: string) {
     this.fontSize = font;
     this.storage.set('fontSize', this.fontSize);
@@ -61,6 +71,7 @@ export class SettingsService {
     // this.getFontSize();
   }
 
+  // method to get font size
   getFontSize(): string {
     this.storage.get('fontSize').then((val) => {
       console.log('Font size is: ', val);
@@ -71,6 +82,7 @@ export class SettingsService {
     return this.fontSize;
   }
 
+  // factory settings set
   factoryBtnClicked() {
     // set factory data
     this.userName = 'username';

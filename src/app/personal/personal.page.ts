@@ -1,30 +1,33 @@
+/**
+ * personal.page.ts is the file that runs the personal settings page
+ * 
+ * @authors   Josh Bussis and Bryan Fowler
+ */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { SettingsService } from '../services/settings.service';
 import { ThemeService } from '../services/theme.service';
 
-
+// custom themes for dark mode
 const themes = {
   day: {
-    primary: '#FFFFFF',
-    secondary: '#FFFFFF',
-    tertiary: '#FFFFFF',
-    light: '#FFFFFF',
-    medium: '#FFFFFF',
-    dark: '#FFFFFF'
+    primary: '#950000',
+    secondary: '#fde611',
+    tertiary: '#c0c0c0',
+    light: '#f4f5f8',
+    medium: '#989aa2',
+    dark: '#222428'
   },
   night: {
-    primary: '#8CBA80',
-    secondary: '#FCFF6C',
-    tertiary: '#FE5F55',
+    primary: '#565656',
+    secondary: '#fde611',
+    tertiary: '#1a1a1a',
     medium: '#BCC2C7',
-    dark: '#F7F7FF',
-    light: '#495867'
+    dark: '#f4f5f8',
+    light: '#f4f5f8'
   }
 };
-
-
 
 @Component({
   selector: 'app-personal',
@@ -46,6 +49,7 @@ export class PersonalPage implements OnInit {
 
   ngOnInit() { }
 
+  // navigation functions
   goToHome() {
     // navigates to the home page
     this.router.navigateByUrl('/home');
@@ -60,43 +64,51 @@ export class PersonalPage implements OnInit {
     this.settings.saveUserName(this.userName);
   }
 
-  darkModeToggle() {  
-    if(!this.settings.darkMode) { 
+  // method to handle darkMode toggle
+  darkModeToggle() {
+    if (!this.settings.darkMode) {
       this.settings.saveDarkMode(true);
-      this.theme.setTheme(themes.night);        
+      this.theme.setTheme(themes.night);
     } else {
       this.settings.saveDarkMode(false);
-      this.theme.setTheme(themes.day);     
+      this.theme.setTheme(themes.day);
     }
   }
 
+  // save entered user name
   saveUserName(name: string) {
     this.settings.saveUserName(name);
   }
 
+  // save the font size selected
   saveFontSize(size: string) {
     this.settings.saveFontSize(size);
   }
 
+  // get current user name
   getUserName() {
     console.log('username clicked');
     this.settings.getUserName();
   }
 
+  // get dark mode state
   getDarkMode() {
     console.log('darkmode clicked');
     this.settings.getDarkMode();
   }
 
+  // get the desired font size
   getFontSize() {
     console.log('fontsize clicked');
     this.settings.getFontSize();
   }
 
+  // factory button method
   factoryBtnClicked() {
     this.settings.factoryBtnClicked();
   }
 
+  // testing function, probably don't need this
   get() {
     console.log("settings userName is: " + this.settings.userName);
   }

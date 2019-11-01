@@ -1,9 +1,9 @@
 <ion-header>
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home"></ion-back-button>
+        <ion-back-button color="tertiary" defaultHref="/home"></ion-back-button>
       </ion-buttons>
-      <ion-title color="tertiary">
+      <ion-title color="secondary">
         Chat
       </ion-title>
     </ion-toolbar>
@@ -15,13 +15,13 @@
          <ion-col size="9" *ngIf="currentUser !== message.user" class="message other-message">
            <b>{{ message.user}}</b>
            <span>{{message.msg}}</span>
-           <div class="time" text-right><br>
+           <div class="time" class="ion-text-right"><br>
           {{ message.createdAt | date:'short' }}</div>
          </ion-col>
          <ion-col offset="3"size="9" *ngIf="currentUser === message.user" class="message my-message">
             <b>{{ message.user}}</b>
             <span>{{message.msg}}</span>
-            <div class="time" text-right><br>
+            <div class="time" class="ion-text-right"><br>
            {{ message.createdAt | date:'short' }}</div>
           </ion-col>
        </ion-row>
@@ -29,7 +29,7 @@
         
       <ion-footer >
       <ion-toolbar color="light">
-        <ion-row align-items-center no-padding>
+        <ion-row class="ion-align-items-center ion-no-padding">
            <ion-col size="10">
             <textarea autosize maxRows="2" [(ngModel)]="newMsg" class="message-input"></textarea>
           </ion-col>

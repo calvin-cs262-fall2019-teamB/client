@@ -1,8 +1,7 @@
-/*
-  chat.page.ts is the main file to run the chat page
-  Made by Josh Bussis
-  Modified by Charlie Newton
-*/
+/**
+ * chat.page.ts is the main file to run the chat page
+ * @authors   Josh Bussis and Charlie Newton
+ */
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,7 +15,7 @@ import { IonContent } from '@ionic/angular';
 export class ChatPage implements OnInit {
 
   constructor(private router: Router) { }
-
+  // dummy data
   messages = [
     {
       user: 'Keith VanderLinden',
@@ -69,6 +68,7 @@ export class ChatPage implements OnInit {
   ngOnInit() {
   }
 
+  // navigation functions
   goToMatches() {
     this.router.navigateByUrl('/matches');
   }

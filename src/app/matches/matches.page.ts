@@ -1,3 +1,8 @@
+/**
+ * matches.page.ts is the file that runs the matches page
+ * 
+ * @authors   Josh Bussis and Bryan Fowler
+ */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../interfaces/person';
@@ -118,6 +123,7 @@ export class MatchesPage implements OnInit {
   ngOnInit() {
   }
 
+  // navigation functions
   goToChat() {
     // navigates to the chat page
     this.router.navigateByUrl('/chat');
