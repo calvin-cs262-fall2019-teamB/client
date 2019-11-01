@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { SettingsService } from '../services/settings.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-personal',
@@ -14,10 +15,11 @@ export class PersonalPage implements OnInit {
   public darkMode: boolean;
   public fontSize: string;
 
-  constructor(private router: Router, private storage: Storage, private settings: SettingsService) {
+  constructor(private router: Router, private storage: Storage, private settings: SettingsService,
+              public theme: ThemeService) {
     this.userName = this.settings.getUserName();
-    this.darkMode = this.settings.getDarkMode();
     this.fontSize = this.settings.getFontSize();
+    this.darkMode = this.settings.getDarkMode();
    }
 
   ngOnInit() { }
@@ -36,8 +38,21 @@ export class PersonalPage implements OnInit {
     this.settings.saveUserName(this.userName);
   }
 
-  darkModeToggle() {
-    this.settings.saveDarkMode(this.darkMode);
+  darkModeToggle() {  
+    this.darkMode = this.settings.getDarkMode();
+    
+    if(this.darkMode == false) {
+      this.settings.saveDarkMode(true); 
+      console.log(this.settings.getDarkMode());
+      this.theme.setDarkModeTrue();      
+    } 
+    if(this.darkMode == true) {
+      
+      this.settings.saveDarkMode(false); 
+      console.log(this.settings.getDarkMode());
+    }
+    
+
   }
 
   saveUserName(name: string) {

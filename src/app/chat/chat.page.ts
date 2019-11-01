@@ -41,7 +41,7 @@ export class ChatPage implements OnInit {
   
   currentUser ='Keith VanderLinden';
   newMsg = '';
-  @ViewChild(IonContent) content: IonContent
+ //@ViewChild(IonContent) content: IonContent
 
 
   sendMessage()
@@ -54,7 +54,7 @@ export class ChatPage implements OnInit {
 
     this.newMsg = '';
     setTimeout(() => {
-      this.content.scrollToBottom(200);
+      //this.content.scrollToBottom(200);
 
     });
 
