@@ -47,7 +47,7 @@ export class ChatPage implements OnInit {
   
   currentUser = 'Keith VanderLinden';
   newMsg = '';
-  //@ViewChild(IonContent) content: IonContent;
+  //@ViewChild(IonContent) content: IonContent
 
 
   sendMessage()
