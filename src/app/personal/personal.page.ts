@@ -2,6 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { SettingsService } from '../services/settings.service';
+import { ThemeService } from '../services/theme.service';
+
+
+const themes = {
+  day: {
+    primary: '#FFFFFF',
+    secondary: '#FFFFFF',
+    tertiary: '#FFFFFF',
+    light: '#FFFFFF',
+    medium: '#FFFFFF',
+    dark: '#FFFFFF'
+  },
+  night: {
+    primary: '#8CBA80',
+    secondary: '#FCFF6C',
+    tertiary: '#FE5F55',
+    medium: '#BCC2C7',
+    dark: '#F7F7FF',
+    light: '#495867'
+  }
+};
+
+
 
 @Component({
   selector: 'app-personal',
@@ -14,10 +37,11 @@ export class PersonalPage implements OnInit {
   public darkMode: boolean;
   public fontSize: string;
 
-  constructor(private router: Router, private storage: Storage, private settings: SettingsService) {
+  constructor(private router: Router, private storage: Storage, private settings: SettingsService,
+              public theme: ThemeService) {
     this.userName = this.settings.getUserName();
-    this.darkMode = this.settings.getDarkMode();
     this.fontSize = this.settings.getFontSize();
+    this.darkMode = this.settings.getDarkMode();
    }
 
   ngOnInit() { }
@@ -36,8 +60,14 @@ export class PersonalPage implements OnInit {
     this.settings.saveUserName(this.userName);
   }
 
-  darkModeToggle() {
-    this.settings.saveDarkMode(this.darkMode);
+  darkModeToggle() {  
+    if(!this.settings.darkMode) { 
+      this.settings.saveDarkMode(true);
+      this.theme.setTheme(themes.night);        
+    } else {
+      this.settings.saveDarkMode(false);
+      this.theme.setTheme(themes.day);     
+    }
   }
 
   saveUserName(name: string) {
