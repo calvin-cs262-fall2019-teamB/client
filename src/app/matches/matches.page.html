@@ -1,8 +1,16 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title color="secondary">
+    <ion-title color="tertiary">
       Matches
     </ion-title>
+    <ion-label slot="end" (click)="goToChat()">
+      <ion-icon 
+        slot="icon-only"
+        name="chatbubbles"
+        size="large"
+        color="tertiary">
+      </ion-icon>
+    </ion-label>
   </ion-toolbar>
 </ion-header>
 
@@ -19,12 +27,13 @@
 </ion-content>
 
 <ion-footer>
+  <!-- probably don't need this button anymore
   <ion-item class="bottomright" color="tertiary">
       <ion-button (click)="goToChat()" router-direction="forward" color="primary" shape="round" class="chatbutton">
         <ion-icon name="chatbubbles" color="secondary"></ion-icon>
         <ion-label color="secondary">Chat</ion-label>
       </ion-button>
-  </ion-item>
+  </ion-item> -->
   <ion-toolbar>
     <ion-tabs>
         <ion-tab-bar slot="bottom" color="primary">

@@ -1,12 +1,47 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title color="secondary">
+    <ion-title color="tertiary">
       Calvin Dating App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="tertiary">
+
+  <ion-card color="tertiary">
+    <ion-card-header color="primary">
+      <ion-card-title color="primary">
+        {{ kvlinden.name}}
+      </ion-card-title>
+      <ion-card-subtitle color="primary">
+        Age: {{ kvlinden.age}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-img [src]="image" class="user-image"></ion-img>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="description">
+    <ion-card-header color="primary">
+      <ion-label>
+        {{ kvlinden.description }}
+      </ion-label>
+    </ion-card-header>
+
+    <ion-card-content class="top-padding">
+      <!-- put the buttons in here -->
+      <ion-button color="red" slot="start" class="left-button">
+        Un-Match
+      </ion-button>
+      <ion-button color="green" slot="end" class="right-button">
+        Match
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
       <ion-tab-button (click)="goToMatches()" routerDirection="backward">

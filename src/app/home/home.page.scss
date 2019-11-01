@@ -1,1 +1,29 @@
+.user-image {
+    height: 350px;
+    object-fit: contain;
+    padding: 30px;
+}
 
+.description {
+    height: 400px;
+}
+
+.top-padding {
+    padding-top: 10px;
+}
+
+.left-button {
+    float: left;
+    padding-left: 40px;
+    padding-top: 6px;
+    width: 150px;
+    height: 54px;
+}
+
+.right-button {
+    float: right;
+    padding-right: 40px;
+    padding-top: 6px;
+    width: 150px;
+    height: 54px;
+}

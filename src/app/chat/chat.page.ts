@@ -1,3 +1,9 @@
+/*
+  chat.page.ts is the main file to run the chat page
+  Made by Josh Bussis
+  Modified by Charlie Newton
+*/
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
@@ -39,9 +45,9 @@ export class ChatPage implements OnInit {
     }
   ];
   
-  currentUser ='Keith VanderLinden';
+  currentUser = 'Keith VanderLinden';
   newMsg = '';
-  @ViewChild(IonContent) content: IonContent
+  //@ViewChild(IonContent) content: IonContent;
 
 
   sendMessage()
@@ -54,7 +60,7 @@ export class ChatPage implements OnInit {
 
     this.newMsg = '';
     setTimeout(() => {
-      this.content.scrollToBottom(200);
+      //this.content.scrollToBottom(200);
 
     });
 
