@@ -3,24 +3,6 @@ import { DOCUMENT } from '@angular/common';
 import * as Color from 'color'; 
 import { SettingsService } from '../services/settings.service'; 
 
-const themes = {
-  day: {
-    primary: '#FFFFFF',
-    secondary: '#FFFFFF',
-    tertiary: '#FFFFFF',
-    light: '#FFFFFF',
-    medium: '#FFFFFF',
-    dark: '#FFFFFF'
-  },
-  night: {
-    primary: '#8CBA80',
-    secondary: '#FCFF6C',
-    tertiary: '#FE5F55',
-    medium: '#BCC2C7',
-    dark: '#F7F7FF',
-    light: '#495867'
-  }
-};
 
 
 @Injectable({
@@ -33,19 +15,15 @@ export class ThemeService {
   constructor( @Inject(DOCUMENT) private document: Document,
                 private settings: SettingsService) 
   {
-    this.theme = settings.getDarkMode();                 
+
   }
 
-  setDarkModeTrue() { 
-    this.setGlobalCSS(CSSTextGenerator('night')); 
-    this.settings.saveDarkMode(true); 
+  setTheme(theme) {
+    const cssText = CSSTextGenerator(theme); 
+    this.setGlobalCSS(cssText); 
   }
 
-  setDarkModeFalse() {
-    this.setGlobalCSS(CSSTextGenerator('day')); 
-    this.settings.saveDarkMode(false); 
-  }
-
+ 
   private setGlobalCSS(css: string) {
     this.document.documentElement.style.cssText = css; 
   }

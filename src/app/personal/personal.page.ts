@@ -4,6 +4,28 @@ import { Storage } from '@ionic/storage';
 import { SettingsService } from '../services/settings.service';
 import { ThemeService } from '../services/theme.service';
 
+
+const themes = {
+  day: {
+    primary: '#FFFFFF',
+    secondary: '#FFFFFF',
+    tertiary: '#FFFFFF',
+    light: '#FFFFFF',
+    medium: '#FFFFFF',
+    dark: '#FFFFFF'
+  },
+  night: {
+    primary: '#8CBA80',
+    secondary: '#FCFF6C',
+    tertiary: '#FE5F55',
+    medium: '#BCC2C7',
+    dark: '#F7F7FF',
+    light: '#495867'
+  }
+};
+
+
+
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.page.html',
@@ -39,20 +61,13 @@ export class PersonalPage implements OnInit {
   }
 
   darkModeToggle() {  
-    this.darkMode = this.settings.getDarkMode();
-    
-    if(this.darkMode == false) {
-      this.settings.saveDarkMode(true); 
-      console.log(this.settings.getDarkMode());
-      this.theme.setDarkModeTrue();      
-    } 
-    if(this.darkMode == true) {
-      
-      this.settings.saveDarkMode(false); 
-      console.log(this.settings.getDarkMode());
+    if(!this.settings.darkMode) { 
+      this.settings.saveDarkMode(true);
+      this.theme.setTheme(themes.night);        
+    } else {
+      this.settings.saveDarkMode(false);
+      this.theme.setTheme(themes.day);     
     }
-    
-
   }
 
   saveUserName(name: string) {
