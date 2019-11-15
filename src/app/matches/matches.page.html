@@ -18,9 +18,20 @@
 
   <ion-infinite-scroll class="behind">
     <ion-infinite-scroll-content>
-      <ion-item color="primary" *ngFor="let match of matches" class="matches">
-        {{match.name}}
-      </ion-item>
+      <!-- <ion-item color="primary" *ngFor="let match of matches" class="matches">
+        <ion-label>{{match.name}}</ion-label>
+        <app-expandable [expandHeight]="itemExpandHeight" [expanded]="match.expanded">
+          <ion-label class="description">{{match.description}}</ion-label>
+        </app-expandable>
+      </ion-item> -->
+      <ion-card (click)="expandItem(match)" color="primary" *ngFor="let match of matches" class="matches">
+        <ion-card-header>
+          {{match.name}}
+        </ion-card-header>
+        <app-expandable [expandHeight]="itemExpandHeight" [expanded]="match.expanded">
+          <ion-label>{{match.description}}</ion-label>
+        </app-expandable>
+      </ion-card>
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 

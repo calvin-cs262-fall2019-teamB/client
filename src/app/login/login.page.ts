@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
 
   // check if the entered email is correct
   checkEmail() {
-    if (this.email === 'test123@students.calvin.edu') {
+    if (this.email === 'test') {
       this.validEmail = true;
     } else {
       this.validEmail = false;
@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
 
   // check if the entered email is correct
   checkPassword() {
-    if (this.password === 'Password123') {
+    if (this.password === '123') {
       this.validPassword = true;
     } else {
       this.validPassword = false;

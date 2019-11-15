@@ -15,7 +15,8 @@ export class PersonService {
         email: 'jd01@students.calvin.edu',
         password: 'password123*',
         description: 'I am a test person.  I am an interesting person.',
-        age: 20
+        age: 20,
+        expanded: false
     }];
   }
 
