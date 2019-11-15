@@ -43,8 +43,9 @@ export class HomePage {
     name: 'Keith Vander Linden',
     email : 'kvlinden@calvin.edu',
     password : 'asdf',
-    description: 'I am a professor at Calvin University. I enjoy long walks at the beach with my wife Brenda.',
-    age : 45
+    description: 'I am a professor at Calvin University. I enjoy long walks at the beach, tea, and computers.',
+    age : 45,
+    expanded: false
   };
 
   // image for home page

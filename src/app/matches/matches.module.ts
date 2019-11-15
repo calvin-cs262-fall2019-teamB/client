@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { SettingsService } from '../services/settings.service';
+import { ExpandableComponent } from '../components/expandable/expandable.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MatchesPage]
+  declarations: [MatchesPage, ExpandableComponent]
 })
 export class MatchesPageModule {}

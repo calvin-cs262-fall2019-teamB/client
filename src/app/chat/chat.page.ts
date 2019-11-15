@@ -18,33 +18,33 @@ export class ChatPage implements OnInit {
   // dummy data
   messages = [
     {
-      user: 'Keith VanderLinden',
+      user: 'Brenda Vander Linden',
       createdAt: 1554090856000,
-      msg: 'sup'
+      msg: ' Hello'
     },
     {
-      user: 'Also Keith VanderLinden',
+      user: 'Keith Vander Linden',
       createdAt: 1554090856000,
-      msg: 'hey'
+      msg: ' Hi!'
     },
     {
-      user: 'Keith VanderLinden',
+      user: 'Brenda Vander Linden',
       createdAt: 1554090856000,
-      msg: 'drinks?'
+      msg: ' Calvin Walk?'
     },
     {
-      user: 'Also Keith VanderLinden',
+      user: 'Keith Vander Linden',
       createdAt: 1554090856000,
-      msg: 'Yassss'
+      msg: ' Bike instead?'
     },
     {
-      user: 'Keith VanderLinden',
+      user: 'Brenda Vander Linden',
       createdAt: 1554090856000,
-      msg: 'Yassss?'
+      msg: ' Sure!'
     }
   ];
   
-  currentUser = 'Keith VanderLinden';
+  currentUser = 'Brenda Vander Linden';
   newMsg = '';
 
   //@ViewChild(IonContent) content: IonContent
@@ -52,9 +52,9 @@ export class ChatPage implements OnInit {
   sendMessage()
   {
     this.messages.push({
-      user: 'Keith VanderLinden',
+      user: 'Brenda Vander Linden',
       createdAt: new Date().getTime(),
-      msg: this.newMsg
+      msg: ' ' + this.newMsg
     });
 
     this.newMsg = '';
