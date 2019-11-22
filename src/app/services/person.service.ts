@@ -10,14 +10,14 @@ export class PersonService {
 
   constructor() {
       // this is just test info right now, we will add people when they sign up in the future
-    this.people = [{
-        name: 'John Doe',
-        email: 'jd01@students.calvin.edu',
-        password: 'password123*',
-        description: 'I am a test person.  I am an interesting person.',
-        age: 20,
-        expanded: false
-    }];
+    // this.people = [{
+    //     name: 'John Doe',
+    //     email: 'jd01@students.calvin.edu',
+    //     password: 'password123*',
+    //     description: 'I am a test person.  I am an interesting person.',
+    //     age: 20,
+    //     expanded: false
+    // }];
   }
 
   load() {

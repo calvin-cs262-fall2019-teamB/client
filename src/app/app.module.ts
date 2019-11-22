@@ -10,11 +10,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 // import for storage
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(),
+    AngularFirestoreModule, AngularFireModule.initializeApp(environment.firebase), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
