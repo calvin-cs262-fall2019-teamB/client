@@ -4,7 +4,9 @@
         <ion-back-button color="tertiary" defaultHref="/home"></ion-back-button>
       </ion-buttons>
       <ion-title color="secondary">
-        Chat
+        <font size="6">
+          <b>Chat</b>
+        </font>
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -13,14 +15,14 @@
     <ion-grid>
        <ion-row *ngFor="let message of messages">
          <ion-col size="9" *ngIf="currentUser !== message.user" class="message other-message">
-           <b>{{ message.user}}</b>
-           <span>{{message.msg}}</span>
+           <b><font size=4 color="#fff">{{ message.user}}</font></b>
+           <span><font size=4 color="#fff">{{message.msg}}</font></span>
            <div class="time" class="ion-text-right"><br>
-          {{ message.createdAt | date:'short' }}</div>
+            <font size=4 color="#fff">{{ message.createdAt | date:'short' }}</font></div>
          </ion-col>
          <ion-col offset="3"size="9" *ngIf="currentUser === message.user" class="message my-message">
-            <b>{{ message.user}}</b>
-            <span>{{message.msg}}</span>
+            <b><font size=4>{{ message.user}}</font></b>
+            <span><font size=4>{{message.msg}}</font></span>
             <div class="time" class="ion-text-right"><br>
            {{ message.createdAt | date:'short' }}</div>
           </ion-col>
@@ -58,7 +60,7 @@
           <ion-icon name="settings"></ion-icon>
           <ion-label>Personal Settings</ion-label>
         </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
+      </ion-tab-bar> 
+    </ion-tabs>   
   </ion-content>
   

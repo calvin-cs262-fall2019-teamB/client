@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title color="secondary">
-      Calvin Dating App
+      <font size="6">
+        <b> Calvin Dating App </b>
+      </font>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,11 +13,13 @@
   <ion-card color="tertiary">
     <ion-card-header color="primary">
       <ion-card-title>
-        {{ kvlinden.name}}
+        <font size="5">
+          <b> {{ kvlinden.name}} </b>
+        </font>
+        <font size="4">
+            Age: {{ kvlinden.age}}
+        </font>
       </ion-card-title>
-      <ion-card-subtitle>
-        Age: {{ kvlinden.age}}
-      </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
 
@@ -27,7 +31,8 @@
   <ion-card class="description">
     <ion-card-header color="primary">
       <ion-label>
-        {{ kvlinden.description }}
+        <font size="4"> {{ kvlinden.description }} </font>
+        
       </ion-label>
     </ion-card-header>
 

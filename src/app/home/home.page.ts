@@ -2,6 +2,7 @@
  * home.page.ts is the file to run the home page
  * 
  * @authors Josh Bussis and Bryan Fowler
+ * Edited by: Bryce Allen, 11/21/19
  */
 import { Component } from '@angular/core';
 import { PersonService } from '../services/person.service';
@@ -13,9 +14,9 @@ import { ThemeService } from '../services/theme.service';
 // custom themes for dark mode
 const themes = {
   day: {
-    primary: '#950000',
-    secondary: '#fde611',
-    tertiary: '#c0c0c0',
+    primary: '#8C2131',//'#d33939',//'#950000',
+    secondary: '#f3cd00',//'#fde611',
+    tertiary: '#ffff',
     light: '#f4f5f8',
     medium: '#989aa2',
     dark: '#222428'
