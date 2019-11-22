@@ -26,10 +26,10 @@
       </ion-item> -->
       <ion-card (click)="expandItem(match)" color="primary" *ngFor="let match of matches" class="matches">
         <ion-card-header>
-          {{match.name}}
+          {{match.info.name}}
         </ion-card-header>
         <app-expandable [expandHeight]="itemExpandHeight" [expanded]="match.expanded">
-          <ion-label>{{match.description}}</ion-label>
+          <ion-label>{{match.info.description}}</ion-label>
         </app-expandable>
       </ion-card>
     </ion-infinite-scroll-content>
