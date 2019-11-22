@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyB5zjBjKRtSe8Sp_BnAoYecV0cXL2eqDVc',
+    authDomain: 'calvindatingapp.firebaseapp.com',
+    databaseURL: 'https://calvindatingapp.firebaseio.com',
+    projectId: 'calvindatingapp',
+    storageBucket: 'calvindatingapp.appspot.com',
+    messagingSenderId: '1007517398484'
+ }
 };
 
 /*

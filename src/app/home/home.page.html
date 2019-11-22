@@ -13,42 +13,50 @@
   <ion-card color="tertiary">
     <ion-card-header color="primary">
       <ion-card-title>
-        <font size="5">
-          <b> {{ kvlinden.name}} </b>
-        </font>
-        <font size="4">
-            Age: {{ kvlinden.age}}
-        </font>
+        
+      <font size="5">
+        <b> {{ personToMatch.name }} </b>
+      </font>
       </ion-card-title>
+      <ion-card-subtitle>
+        <font size="4"> Age: {{ personToMatch.age }} </font>
+      </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
 
-      <ion-img [src]="image" class="user-image"></ion-img>
+      <ion-img [src]=[personToMatch.picture] class="user-image"></ion-img>
 
     </ion-card-content>
   </ion-card>
 
-  <ion-card class="description">
-    <ion-card-header color="primary">
-      <ion-label>
-        <font size="4"> {{ kvlinden.description }} </font>
-        
-      </ion-label>
-    </ion-card-header>
+  <!-- <ion-card class="description">
+    <ion-card-header color="primary"> -->
+     <ion-item class="description" color="primary">
+      <p>
+          <font size="4">{{ personToMatch.description }}</font>
+      </p>
+      
+     </ion-item> 
+    <!-- </ion-card-header
 
     <ion-card-content class="top-padding">
-      <!-- put the buttons in here -->
-      <ion-button color="red" slot="start" class="left-button">
+      put the buttons in here
+      <ion-button (click)="unMatch()" color="red" slot="start" class="left-button">
         Un-Match
       </ion-button>
-      <ion-button color="green" slot="end" class="right-button">
+      <ion-button (click)="match()" color="green" slot="end" class="right-button">
         Match
       </ion-button>
-    </ion-card-content>
-  </ion-card>
+     </ion-card-content>
+  </ion-card> -->
 
   <ion-tabs>
     <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button (click)="unMatch()">
+        <ion-icon name="close-circle" size="large"></ion-icon>
+        <ion-label>Pass</ion-label>
+      </ion-tab-button>
+
       <ion-tab-button (click)="goToMatches()" routerDirection="backward">
         <ion-icon name="contacts"></ion-icon>
         <ion-label>Matches</ion-label>
@@ -62,6 +70,11 @@
       <ion-tab-button (click)="goToPersonal()" routerDirection="backward">
         <ion-icon name="settings"></ion-icon>
         <ion-label>Personal Settings</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="match()">
+        <ion-icon name="checkmark-circle" size="large"></ion-icon>
+        <ion-label>Match</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
