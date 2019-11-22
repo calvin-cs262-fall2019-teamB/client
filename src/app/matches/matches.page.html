@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title color="secondary">
-      Matches
+      <font size="6">
+        <b>Matches</b>
+      </font>
     </ion-title>
     <ion-label slot="end" (click)="goToChat()">
       <ion-icon 
@@ -26,10 +28,14 @@
       </ion-item> -->
       <ion-card (click)="expandItem(match)" color="primary" *ngFor="let match of matches" class="matches">
         <ion-card-header>
+
+          <font size="5">
           {{match.info.name}}
+            </font>
         </ion-card-header>
         <app-expandable [expandHeight]="itemExpandHeight" [expanded]="match.expanded">
-          <ion-label>{{match.info.description}}</ion-label>
+          <ion-label><font size="4">{{match.info.description}}</font></ion-label>
+
         </app-expandable>
       </ion-card>
     </ion-infinite-scroll-content>

@@ -7,9 +7,30 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../interfaces/person';
 import { Match } from '../interfaces/match';
-import { SettingsService } from '../services/settings.service';
+import { SettingsService } from '../services/settings.service'
 import { FirebaseService } from '../services/firebase.service';
-import { User } from '../interfaces/user';
+import { User } from '../interfaces/user';;
+import { ThemeService } from '../services/theme.service';
+import { PersonService } from '../services/person.service';
+
+const themes = {
+  day: {
+    primary: '#8C2131',//'#d33939',//'#950000',
+    secondary: '#f3cd00',//'#fde611',
+    tertiary: '#ffff',
+    light: '#f4f5f8',
+    medium: '#989aa2',
+    dark: '#222428'
+  },
+  night: {
+    primary: '#565656',
+    secondary: '#fde611',
+    tertiary: '#1a1a1a',
+    medium: '#BCC2C7',
+    dark: '#f4f5f8',
+    light: '#f4f5f8'
+  }
+};
 
 @Component({
   selector: 'app-matches',
@@ -52,7 +73,12 @@ export class MatchesPage implements OnInit {
     }
   ];
 
-  constructor(private router: Router, private db: FirebaseService) {
+  constructor(public theme: ThemeService, public personService: PersonService, private router: Router, private settings: SettingsService, private db: FirebaseService) {
+    if (this.settings.darkMode) {
+      this.theme.setTheme(themes.night);
+    } else {
+      this.theme.setTheme(themes.day);
+  
     for (let i = 0; i < 4; i++) {
       this.db.getUser().subscribe(data => {
         this.matches[i].info = data[i];

@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title color="secondary">
-      Calvin Dating App
+      <font size="6">
+        <b> Calvin Dating App </b>
+      </font>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,10 +13,13 @@
   <ion-card color="tertiary">
     <ion-card-header color="primary">
       <ion-card-title>
-        {{ personToMatch.name }}
+        
+      <font size="5">
+        <b> {{ personToMatch.name }} </b>
+      </font>
       </ion-card-title>
       <ion-card-subtitle>
-        Age: {{ personToMatch.age }}
+        <font size="4"> Age: {{ personToMatch.age }} </font>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
@@ -28,11 +33,11 @@
     <ion-card-header color="primary"> -->
      <ion-item class="description" color="primary">
       <p>
-          {{ personToMatch.description }}
+          <font size="4">{{ personToMatch.description }}</font>
       </p>
       
      </ion-item> 
-    <!-- </ion-card-header>
+    <!-- </ion-card-header
 
     <ion-card-content class="top-padding">
       put the buttons in here
