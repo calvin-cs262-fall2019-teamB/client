@@ -1,7 +1,7 @@
 /**
  * personal.page.ts is the file that runs the personal settings page
  * 
- * @authors   Josh Bussis and Bryan Fowler
+ * @authors   Josh Bussis, Bryan Fowler, and Brian Goins
  * Edited by: Bryce Allen, 11/21/19
  */
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { SettingsService } from '../services/settings.service';
 import { ThemeService } from '../services/theme.service';
+import { UserDataRWService } from '../services/user-data-rw.service'; 
+
 
 // custom themes for dark mode
 const themes = {
@@ -31,19 +33,29 @@ const themes = {
 };
 
 @Component({
-  selector: 'app-personal',
-  templateUrl: './personal.page.html',
-  styleUrls: ['./personal.page.scss'],
+  selector: 'app-account',
+  templateUrl: './account.page.html',
+  styleUrls: ['./account.page.scss'],
 })
-export class PersonalPage implements OnInit {
+
+
+
+export class AccountPage implements OnInit {
 
   public userName: string;
+  public userAge: number;
+  public ageRange: string; 
+  public lookingfor: string; 
+  public description: string; 
+  public pictures: any; 
   public darkMode: boolean;
-  public fontSize: string;
+ 
+
 
   constructor(private router: Router, private storage: Storage, private settings: SettingsService,
-              public theme: ThemeService) {
-    //this.userName = this.settings.getUserName();
+              public theme: ThemeService,
+              public dataRW: UserDataRWService) {
+    //this.userName = this.dataRW.readData('name');
     this.darkMode = this.settings.getDarkMode();
    }
 
@@ -60,10 +72,6 @@ export class PersonalPage implements OnInit {
     this.router.navigateByUrl('/matches');
   }
 
-  settingsButtonClicked() {
-    //this.settings.saveUserName(this.userName);
-  }
-
   // method to handle darkMode toggle
   darkModeToggle() {
     if (!this.settings.darkMode) {
@@ -75,14 +83,19 @@ export class PersonalPage implements OnInit {
     }
   }
 
-  saveUserName(name: string) {
-    //this.settings.saveUserName(name);
-  }
+  saveUserName() { this.dataRW.writeName(this.userName); }
 
-  // get current user name
-  getUserName() {
-    //this.settings.getUserName();
-  }
+
+  //Age
+  saveAge() { this.dataRW.writeAge(this.userAge);}
+  
+  //Age Range
+  saveAgeRange() { this.dataRW.writeAgeRange(this.ageRange);}
+
+
+  //Description
+  saveDescription() { this.dataRW.writeDescription(this.description);}
+  
 
   // get dark mode state
   getDarkMode() {
@@ -95,5 +108,8 @@ export class PersonalPage implements OnInit {
     this.settings.factoryBtnClicked();
   }
 
- 
+  
+  deleteAccount() {
+
+  }
 }

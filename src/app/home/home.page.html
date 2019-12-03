@@ -24,8 +24,8 @@
     </ion-card-header>
     <ion-card-content>
 
-      <ion-img [src]=[personToMatch.picture] class="user-image"></ion-img>
-
+      <!--<ion-img [src]=[personToMatch.picture] class="user-image"></ion-img>
+      -->
     </ion-card-content>
   </ion-card>
 
@@ -51,7 +51,7 @@
   </ion-card> -->
 
   <ion-tabs>
-    <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-bar slot="bottom" color="primary" class="bottom">
       <ion-tab-button (click)="unMatch()">
         <ion-icon name="close-circle" size="large"></ion-icon>
         <ion-label>Pass</ion-label>
@@ -69,7 +69,7 @@
 
       <ion-tab-button (click)="goToPersonal()" routerDirection="backward">
         <ion-icon name="settings"></ion-icon>
-        <ion-label>Personal Settings</ion-label>
+        <ion-label>My Account</ion-label>
       </ion-tab-button>
 
       <ion-tab-button (click)="match()">
