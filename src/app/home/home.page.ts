@@ -1,6 +1,6 @@
 /**
  * home.page.ts is the file to run the home page
- * 
+ *
  * @authors Josh Bussis and Bryan Fowler
  * Edited by: Bryce Allen, 11/21/19
  */
@@ -15,6 +15,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 import { User } from '../interfaces/user';
 import { ChatService } from '../services/chat.service';
 import { LikesService } from '../services/likes.service';
+import { UserID } from '../interfaces/userid';
+import { AuthenticateService } from '../services/authenticate.service';
 
 // custom themes for dark mode
 const themes = {
@@ -48,8 +50,9 @@ export class HomePage {
   with another person for testing we always
   assume they've matched
   */
-  matched = true; 
-  userID: string; 
+  matched = true;
+  matchUserID: string;
+  currentUserID: string;
 
   
   personToMatch: User = {
@@ -71,9 +74,10 @@ export class HomePage {
   //image = 'https://www.bgreco.net/wkwt/3406/3426621412_8628da6e13.jpg';
 
   constructor(public theme: ThemeService, public personService: PersonService,
-              private router: Router, private settings: SettingsService, 
+              private router: Router, private settings: SettingsService,
               private db: FirebaseService,
               private likeServ: LikesService,
+              private authService: AuthenticateService,
               private chat: ChatService) {
 
     if (this.settings.darkMode) {
@@ -88,9 +92,20 @@ export class HomePage {
     this.db.getUser().subscribe(data => {
       console.log(data[0]);
       this.currentIndex = 0;
-      
+
       this.personToMatch = data[this.currentIndex];
     });
+
+    // console.log(this.db.getUsers());
+    //console.log(this.db.getUsers());
+    // let data = this.db.getUserID().subscribe(x => {
+    //   console.log(x[5]);
+    // });
+    //console.log(data);
+
+    this.currentUserID = this.authService.getUserID();
+    //console.log(this.currentUserID);
+    // console.log(this.authService.getUserID());
   }
 
   // navigation functions
@@ -108,32 +123,30 @@ export class HomePage {
     In the future this function will
     read the database to view if the other person
     was liked or whatever
-  */ 
+  */
   getLikes() {
     return this.matched;
   }
 
   match() {
-    var users = this.db.getUsers(); 
-    
+    //let currentArray = this.
+    this.db.getUserID().subscribe(data => {
+      //this.matchUserID = data[this.currentIndex];
+      //console.log(data[this.currentIndex]);
+      this.db.updateMyLikes(this.currentUserID, data[this.currentIndex]);
+    });
+    //this.db.updateMyLikes(this.currentUserID, this.matchUserID);
+
     this.currentIndex++;
 
     this.db.getUser().subscribe(data => {
       this.personToMatch = data[this.currentIndex];
     });
 
-    this.likeServ.updateLikes('TestUID');
-    
-
 
     if (this.getLikes) {
       //this.chatSer.create(); 
     }
-
-    
-
-
-
   }
 
   unMatch() {

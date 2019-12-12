@@ -53,7 +53,8 @@ export class MatchesPage implements OnInit {
     userGender: 'loading',
     userMatches: [],
     userChats: [],
-  }
+  };
+
   matches: Match[] = [
     {
       info: this.dummyUser,
@@ -79,16 +80,15 @@ export class MatchesPage implements OnInit {
     } else {
       this.theme.setTheme(themes.day);
     }
-  
+
     for (let i = 0; i < 4; i++) {
       this.db.getUser().subscribe(data => {
         this.matches[i].info = data[i];
       });
       this.matches[i].expanded = false;
     }
-    
   }
-  
+
   ngOnInit() {
   }
 
@@ -114,8 +114,7 @@ export class MatchesPage implements OnInit {
 
   goToPersonal() {
     // navigates to the personal page
-    this.router.navigateByUrl('/personal');
+    this.router.navigateByUrl('/account');
   }
-  
 
 }

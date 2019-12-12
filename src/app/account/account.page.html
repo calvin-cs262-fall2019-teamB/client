@@ -51,6 +51,14 @@
     <ion-label color="dark">Darkmode</ion-label>
     <ion-toggle (ionChange)="darkModeToggle()"></ion-toggle>
   </ion-item>
+
+  <!-- <ion-item color="tertiary">
+    <ion-label class="help" (click)="href=https://github.com/calvin-cs262-fall2019-teamB/client/wiki/Help">click here to go to our online help page:</ion-label>
+  </ion-item> -->
+  <ion-item color="tertiary">
+    <ion-button shape="round" 
+      href="https://github.com/calvin-cs262-fall2019-teamB/client/wiki/Help">Help</ion-button>
+  </ion-item>
   
 
 
@@ -75,7 +83,7 @@
 
       <ion-tab-button>
         <ion-icon name="settings"></ion-icon>
-        <ion-label>Personal Settings</ion-label>
+        <ion-label>My Account</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
