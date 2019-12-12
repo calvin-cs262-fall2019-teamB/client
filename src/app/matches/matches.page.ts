@@ -53,7 +53,8 @@ export class MatchesPage implements OnInit {
     userGender: 'loading',
     userMatches: [],
     userChats: [],
-  }
+  };
+
   matches: Match[] = [
     {
       info: this.dummyUser,
@@ -78,129 +79,14 @@ export class MatchesPage implements OnInit {
       this.theme.setTheme(themes.night);
     } else {
       this.theme.setTheme(themes.day);
-  
+    }
+
     for (let i = 0; i < 4; i++) {
       this.db.getUser().subscribe(data => {
         this.matches[i].info = data[i];
       });
       this.matches[i].expanded = false;
     }
-    // this will just be some dummy data for now
-    // this.matches = [
-    //   { name: 'Samuel L. Jackson',
-    //     email: 'slj01@students.calvin.edu',
-    //     password: 'password123',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 70,
-    //     expanded: false
-    //   },
-    //   { name: 'Chad',
-    //     email: 'cst69@students.calvin.edu',
-    //     password: 'password123',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 21,
-    //     expanded: false
-    //   },
-    //   { name: 'Stinky Pete',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Herb Williams',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Josh Philips',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Sean Veel',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Joey Smith',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Jack Steers',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Kurt Peters',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'John Doe',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'George Michael',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Hugh Jackman',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Tanjiro Kamado',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'William M. Buttlicker',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Dwight Shrute',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-    //   { name: 'Michael Bluth',
-    //     email: 'sp02@students.calvin.edu',
-    //     password: 'password',
-    //     description: 'This is an example description for testing purposes.  I am a person, not a robot... I swear.  How about the weather we have been having?',
-    //     age: 65,
-    //     expanded: false
-    //   },
-
-    // ];
   }
 }
 
@@ -229,7 +115,7 @@ export class MatchesPage implements OnInit {
 
   goToPersonal() {
     // navigates to the personal page
-    this.router.navigateByUrl('/personal');
+    this.router.navigateByUrl('/account');
   }
 
 }

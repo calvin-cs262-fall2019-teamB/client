@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="tertiary" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="tertiary">
+      Welcome to Calvin Meets!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <ion-list color="tertiary" class="login-list">
+    
+    <!-- This is the email input -->
+    <ion-item color="tertiary">
+      <ion-label
+        color="primary"
+        position="floating">
+        Enter Email
+      </ion-label>
+      <ion-input color="primary" type="string"
+        [(ngModel)]="email">
+      </ion-input>
+    </ion-item>
+    
+    <!-- This is the password1 input -->
+    <ion-item color="tertiary">
+      <ion-label
+        color="primary"
+        position="floating">
+        Enter Password
+      </ion-label>
+      <ion-input color="primary" type="password"
+        [(ngModel)]="password1">
+      </ion-input>
+    </ion-item>
+
+     <!-- This is the password1 input -->
+     <ion-item color="tertiary">
+      <ion-label
+        color="primary"
+        position="floating">
+        Confirm Password
+      </ion-label>
+      <ion-input color="primary" type="password"
+        [(ngModel)]="password2">
+      </ion-input>
+    </ion-item>
+
+    <!-- This is the age input -->
+    <ion-item color="tertiary">
+      <ion-label
+        color="primary"
+        position="floating">
+        Enter Age
+      </ion-label>
+      <ion-input color="primary" type="number"
+        [(ngModel)]="age">
+      </ion-input>
+    </ion-item>
+
+    <!-- This is name input -->
+    <ion-item color="tertiary">
+      <ion-label
+        color="primary"
+        position="floating">
+        Enter Your First Name
+      </ion-label>
+      <ion-input color="primary" type="string"
+        [(ngModel)]="name">
+      </ion-input>
+    </ion-item>
+
+    <!-- Gender input -->
+    <ion-item color="tertiary">
+      <ion-label color="primary">Gender</ion-label>
+      <ion-select placeholder="Select One" type="string"
+      [(ngModel)]="gender">
+        <ion-select-option >Female</ion-select-option>
+        <ion-select-option >Male</ion-select-option>
+        <ion-select-option >Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+  
+  <ion-button (click)="addUser()" 
+    color="primary"  
+    shape="round" 
+    size="small"
+    expand="block">
+    <ion-label color="secondary">Create Account</ion-label>
+  </ion-button>
+</ion-content>
+
+
+<!-- Login Error Alert -->

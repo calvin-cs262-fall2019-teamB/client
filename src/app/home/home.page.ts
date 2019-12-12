@@ -1,6 +1,6 @@
 /**
  * home.page.ts is the file to run the home page
- * 
+ *
  * @authors Josh Bussis and Bryan Fowler
  * Edited by: Bryce Allen, 11/21/19
  */
@@ -13,6 +13,10 @@ import { ThemeService } from '../services/theme.service';
 import { FirebaseService } from '../services/firebase.service';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { User } from '../interfaces/user';
+import { ChatService } from '../services/chat.service';
+import { LikesService } from '../services/likes.service';
+import { UserID } from '../interfaces/userid';
+import { AuthenticateService } from '../services/authenticate.service';
 
 // custom themes for dark mode
 const themes = {
@@ -40,18 +44,17 @@ const themes = {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  /*
+  Need to implement if matched equals true,
+  Chats should be created when someone matches
+  with another person for testing we always
+  assume they've matched
+  */
+  matched = true;
+  matchUserID: string;
+  currentUserID: string;
 
-
-  // moc-person structure
-  // kvlinden: Person = {
-  //   name: 'Keith Vander Linden',
-  //   email : 'kvlinden@calvin.edu',
-  //   password : 'asdf',
-  //   description: 'I am a professor at Calvin University. I enjoy long walks at the beach, tea, and computers.',
-  //   age : 45,
-  //   expanded: false
-  // };
-  //currentUsers: User[];
+  
   personToMatch: User = {
     age: 'loading',
     name: 'loading',
@@ -71,7 +74,11 @@ export class HomePage {
   //image = 'https://www.bgreco.net/wkwt/3406/3426621412_8628da6e13.jpg';
 
   constructor(public theme: ThemeService, public personService: PersonService,
-              private router: Router, private settings: SettingsService, private db: FirebaseService) {
+              private router: Router, private settings: SettingsService,
+              private db: FirebaseService,
+              private likeServ: LikesService,
+              private authService: AuthenticateService,
+              private chat: ChatService) {
 
     if (this.settings.darkMode) {
       this.theme.setTheme(themes.night);
@@ -83,13 +90,22 @@ export class HomePage {
     //   console.log(data[0].payload.doc);
     // });
     this.db.getUser().subscribe(data => {
-      console.log(data);
+      console.log(data[0]);
       this.currentIndex = 0;
+
       this.personToMatch = data[this.currentIndex];
     });
 
-    // this.db.createUser('John Doe', 'jd1@students.calvin.edu', 'This is a test account to see if firebase is working.',
-    //                     19, 'Password123', 'picture.jpg', 'male', [], []);
+    // console.log(this.db.getUsers());
+    //console.log(this.db.getUsers());
+    // let data = this.db.getUserID().subscribe(x => {
+    //   console.log(x[5]);
+    // });
+    //console.log(data);
+
+    this.currentUserID = this.authService.getUserID();
+    //console.log(this.currentUserID);
+    // console.log(this.authService.getUserID());
   }
 
   // navigation functions
@@ -100,15 +116,37 @@ export class HomePage {
 
   goToPersonal() {
     // navigates to the personal page
-    this.router.navigateByUrl('/personal');
+    this.router.navigateByUrl('/account');
+  }
+
+  /*
+    In the future this function will
+    read the database to view if the other person
+    was liked or whatever
+  */
+  getLikes() {
+    return this.matched;
   }
 
   match() {
+    //let currentArray = this.
+    this.db.getUserID().subscribe(data => {
+      //this.matchUserID = data[this.currentIndex];
+      //console.log(data[this.currentIndex]);
+      this.db.updateMyLikes(this.currentUserID, data[this.currentIndex]);
+    });
+    //this.db.updateMyLikes(this.currentUserID, this.matchUserID);
+
     this.currentIndex++;
 
     this.db.getUser().subscribe(data => {
       this.personToMatch = data[this.currentIndex];
     });
+
+
+    if (this.getLikes) {
+      //this.chatSer.create(); 
+    }
   }
 
   unMatch() {

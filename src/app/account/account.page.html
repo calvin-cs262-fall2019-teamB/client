@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="secondary">
+        <font size="6">
+          <b>Account</b>
+        </font>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color='tertiary'>
+  <!-- We will add the useability later -->
+  <!-- FIRST NAME -->
+  <ion-item color="tertiary">
+    <ion-label color="dark" position="floating">
+      {{ dataRW.userName }}
+    </ion-label>
+    <ion-input [(ngModel)]="userName"></ion-input>
+    <ion-button shape="round" (click)="saveUserName()">Update First Name</ion-button>
+  </ion-item>
+
+  <!-- AGE -->
+  <ion-item color="tertiary">
+    <ion-label color="dark" position="floating">
+      {{ dataRW.userAge }}
+    </ion-label>
+    <ion-input [(ngModel)]="userAge"></ion-input>
+    <ion-button shape="round" (click)="saveAge()">Update Age</ion-button>
+  </ion-item>
+
+  <!-- AGE RANGE -->
+  <ion-item color="tertiary">
+    <ion-label color="dark" position="floating">
+      {{ dataRW.AgeRange }}
+    </ion-label>
+    <ion-input [(ngModel)]="ageRange"></ion-input>
+    <ion-button shape="round" (click)="saveAgeRange()">Update Range Age</ion-button>
+  </ion-item>
+
+  <!-- DESCRIPTION -->
+  <ion-item color="tertiary">
+    <ion-label color="dark" position="floating">
+      {{ dataRW.Description }}
+    </ion-label>
+    <ion-input [(ngModel)]="description"></ion-input>
+    <ion-button shape="round" (click)="saveDescription()">Update Description</ion-button>
+  </ion-item>
+
+  <!-- Darkmode toggle -->
+  <ion-item color="tertiary">
+    <ion-label color="dark">Darkmode</ion-label>
+    <ion-toggle (ionChange)="darkModeToggle()"></ion-toggle>
+  </ion-item>
+
+  <!-- <ion-item color="tertiary">
+    <ion-label class="help" (click)="href=https://github.com/calvin-cs262-fall2019-teamB/client/wiki/Help">click here to go to our online help page:</ion-label>
+  </ion-item> -->
+  <ion-item color="tertiary">
+    <ion-button shape="round" 
+      href="https://github.com/calvin-cs262-fall2019-teamB/client/wiki/Help">Help</ion-button>
+  </ion-item>
+  
+
+
+  <!-- 
+  <ion-item>
+    <ion-button (click)="get()">userName</ion-button>
+  </ion-item>  -->
+
+  <!-- Tab bar at bottom of page -->
+  <!-- This is the same on all pages -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button (click)="goToMatches()" routerDirection="backward">
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>Matches</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="goToHome()" routerDirection="forward">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button>
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>My Account</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

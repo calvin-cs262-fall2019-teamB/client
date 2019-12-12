@@ -1,11 +1,14 @@
 /**
  * login.page.ts is the file that runs the login page
- * 
+ *
  * @authors   Josh Bussis and Bryan Fowler
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SettingsService } from '../services/settings.service';
+import { AuthenticateService } from '../services/authenticate.service';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'app-login',
@@ -16,50 +19,30 @@ export class LoginPage implements OnInit {
 
   private email: string;
   private password: string;
-  private validEmail: boolean;
-  private validPassword: boolean;
 
-  constructor(private settings: SettingsService, private router: Router) {
-    this.validEmail = false;
-    this.validPassword = false;
+  constructor(private settings: SettingsService,
+              private router: Router,
+              private storage: Storage,
+              private auth: AuthenticateService) {
 
-   }
+  }
 
-   // make sure to get the saved data on the phone
+  // make sure to get the saved data on the phone
   ngOnInit() {
-    this.settings.getUserName();
+    //this.settings.getUserName();
     this.settings.getDarkMode();
-    this.settings.getFontSize();
   }
 
-  // check if the entered email is correct
-  checkEmail() {
-    if (this.email === 'test') {
-      this.validEmail = true;
-    } else {
-      this.validEmail = false;
-    }
-  }
-
-  // check if the entered email is correct
-  checkPassword() {
-    if (this.password === '123') {
-      this.validPassword = true;
-    } else {
-      this.validPassword = false;
-    }
-  }
 
   // button click method
   loginBtnClicked() {
-    this.checkEmail();
-    this.checkPassword();
+    this.auth.login(this.email, this.password);
+    // Error Checking Needed is in auth service
+  }
 
-    if (this.validEmail && this.validPassword) {
-      this.router.navigateByUrl('/home');
-    } else {
-      alert('Could not find email or password');
-    }
+  gotoNewUser() {
+    // navigates to the new user page
+    this.router.navigateByUrl('/newuser');
   }
 
 }

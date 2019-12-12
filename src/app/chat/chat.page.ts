@@ -7,6 +7,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 
+
+//Chat Imports 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
@@ -15,47 +17,16 @@ import { IonContent } from '@ionic/angular';
 export class ChatPage implements OnInit {
 
   constructor(private router: Router) { }
-  // dummy data
-  messages = [
-    {
-      user: 'Brenda Vander Linden',
-      createdAt: 1554090856000,
-      msg: ' Hello'
-    },
-    {
-      user: 'Keith Vander Linden',
-      createdAt: 1554090856000,
-      msg: ' Hi!'
-    },
-    {
-      user: 'Brenda Vander Linden',
-      createdAt: 1554090856000,
-      msg: ' Calvin Walk?'
-    },
-    {
-      user: 'Keith Vander Linden',
-      createdAt: 1554090856000,
-      msg: ' Bike instead?'
-    },
-    {
-      user: 'Brenda Vander Linden',
-      createdAt: 1554090856000,
-      msg: ' Sure!'
-    }
-  ];
+  
   
   currentUser = 'Brenda Vander Linden';
   newMsg = '';
+  chatID = 'chat1';
 
   //@ViewChild(IonContent) content: IonContent
 
   sendMessage()
   {
-    this.messages.push({
-      user: 'Brenda Vander Linden',
-      createdAt: new Date().getTime(),
-      msg: ' ' + this.newMsg
-    });
 
     this.newMsg = '';
     setTimeout(() => {

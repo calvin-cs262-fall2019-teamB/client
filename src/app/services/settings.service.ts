@@ -9,35 +9,13 @@ import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SettingsService {
 
-  public userName: string;
   public darkMode: boolean;
-  public fontSize: string;
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage) {  }
 
-  // method to save user name
-  saveUserName(name: string) {
-    // check if the user has input a username
-    if (name !== '') {
-      this.userName = name;
-      this.storage.set('userName', this.userName);
-      // immediately call the getUserName() fuction
-      // this.getUserName();
-    }
-  }
-
-  // method to get the current user name
-  getUserName(): string {
-    this.storage.get('userName').then((val) => {
-      console.log('Your username is: ', val);
-      // store the value to the app
-      this.userName = val;
-      console.log('your new username is: ' + this.userName);
-    });
-    return this.userName;
-  }
 
   // method to save state of dark mode
   saveDarkMode(mode: boolean) {
@@ -63,34 +41,16 @@ export class SettingsService {
     return this.darkMode;
   }
 
-  // method to save font size
-  saveFontSize(font: string) {
-    this.fontSize = font;
-    this.storage.set('fontSize', this.fontSize);
-    // immediately call the getFontSize()
-    // this.getFontSize();
-  }
-
-  // method to get font size
-  getFontSize(): string {
-    this.storage.get('fontSize').then((val) => {
-      console.log('Font size is: ', val);
-      // store the value to the app
-      this.fontSize = val;
-      console.log('Font size: ' + this.fontSize);
-    });
-    return this.fontSize;
-  }
-
   // factory settings set
   factoryBtnClicked() {
     // set factory data
-    this.userName = 'username';
+    //this.userName = 'useruserName';
     this.darkMode = false;
-    this.fontSize = 'normal';
+    //this.fontSize = 'normal';
     // save this factory data
-    this.saveUserName(this.userName);
+    //this.saveuseruserName(this.userName);
     this.saveDarkMode(this.darkMode);
-    this.saveFontSize('normal');
   }
+
+  
 }
