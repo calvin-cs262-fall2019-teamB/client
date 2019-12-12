@@ -202,6 +202,7 @@ export class MatchesPage implements OnInit {
 
     // ];
   }
+}
 
   ngOnInit() {
   }
